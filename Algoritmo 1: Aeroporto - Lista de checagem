@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class AeroportoListaChecagem {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Entrada: Número de passageiros
+        System.out.print("Digite o número de passageiros: ");
+        int numPassageiros = scanner.nextInt();
+
+        for (int i = 1; i <= numPassageiros; i++) {
+            scanner.nextLine(); // Limpar o buffer
+
+            // Entrada: RG
+            System.out.print("Passageiro " + i + ": Possui RG? (RG/Nao possui): ");
+            String possuiRG = scanner.nextLine();
+
+            // Entrada: Data de nascimento do RG
+            System.out.print("Data de nascimento no RG (DD/MM/AAAA): ");
+            String dataNascimentoRG = scanner.nextLine();
+
+            // Entrada: Passagem
+            System.out.print("Possui passagem? (Passagem/Nao possui): ");
+            String possuiPassagem = scanner.nextLine();
+
+            // Entrada: Data de nascimento da passagem
+            System.out.print("Data de nascimento na passagem (DD/MM/AAAA): ");
+            String dataNascimentoPassagem = scanner.nextLine();
+
+            // Entrada: Assento
+            System.out.print("Assento (formato A12): ");
+            String assento = scanner.nextLine();
+
+            // Verificações
+            if (possuiRG.equals("Nao possui")) {
+                System.out.println("A saída é nessa direção");
+            } else if (possuiPassagem.equals("Nao possui")) {
+                System.out.println("A recepção é nessa direção");
+            } else if (!dataNascimentoRG.equals(dataNascimentoPassagem)) {
+                System.out.println("190");
+            } else {
+                System.out.println("O seu assento é " + assento + ", tenha um ótimo dia.");
+            }
+        }
+
+        scanner.close();
+    }
+}
